@@ -1,0 +1,2 @@
+Files paired are confined_a.jpg and confined_b.jpg
+Files paired are disperse_a.jpg and disperse_b.jpg
