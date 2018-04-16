@@ -1,14 +1,16 @@
 
 % Erick Lu
 % split_image_into_blocks_batch.m
-% This code was written to quantify GC B cell dispersion in
-% processed IHC images. The IgD (Stain_a) and GL7 (stain_b) single stain images from ImageJ
-% were split into 25x25 pixel boxes using the "mat2cell" function. Each
-% individual box was analyzed for IgD and GL7 content using the "numel"
+% This code was written to quantify GC B cell dispersion in processed IHC images. 
+% The IgD (Stain_a) and GL7 (stain_b) single stain images from ImageJ
+% were split into 25x25 pixel boxes using the "mat2cell" function. 
+% Each individual box was analyzed for IgD and GL7 content using the "numel"
 % function to count pixels. For each picture, the proportion of GL7 
 % positive stain, along with the raw IgD and GL7 counts, are exported into 
-% an excel file for further analysis. Parts of this code were adapted from 
-% from Image Analyst (matlab authorid: 31862).
+% an excel file for further analysis. This is also written so that it will run
+% a batch of all the pictures you put in the "matlab pictures" folder, as long as you name
+% the files properly (with suffix "_a" and "_b" for the corresponding two stains). 
+% Parts of this code were adapted from from Image Analyst (matlab authorid: 31862).
 
 %==========================================================================
 % Reading in the Images
