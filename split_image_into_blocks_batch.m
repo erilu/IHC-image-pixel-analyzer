@@ -2,7 +2,7 @@
 % Erick Lu
 % split_image_into_blocks_batch.m
 % This code was written to quantify GC B cell dispersion in
-% processed IHC images. The IgD and GL7 single stain images from ImageJ
+% processed IHC images. The IgD (Stain_a) and GL7 (stain_b) single stain images from ImageJ
 % were split into 25x25 pixel boxes using the "mat2cell" function. Each
 % individual box was analyzed for IgD and GL7 content using the "numel"
 % function to count pixels. For each picture, the proportion of GL7 
@@ -20,8 +20,8 @@ fontSize = 20;
     
 % Set the working directory to the folder containing the image files.
 % MODIFY HERE TO SELECT NEW BATCH FROM FOLDER
-folder = cd('/Users/ericklu/Desktop/Bioinformatics/ihc_quant/pictures')
-folder = cd('/Users/ericklu/Desktop/Bioinformatics/ihc_quant/pictures')
+folder = '/Users/ericklu/Desktop/Bioinformatics/ihc_quant/matlab_pictures'
+cd(folder)
 
 % Generate a list of all the files in the folder.
 files = dir('*.jpg');
