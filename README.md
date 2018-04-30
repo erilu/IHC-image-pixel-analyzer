@@ -12,13 +12,14 @@ To analyze the matlab output, I wrote a [R script](https://github.com/erilu/IHC-
 1. Use ImageJ to convert a Blue/Brown IHC stain to binary, single-stain pictures, using the IHC toolbox. Below is an example of converting an original IHC image into binary, single-stain images:
 ![general_workflow_IHC_quant](https://github.com/erilu/IHC-image-pixel-analyzer/blob/master/readme_pictures/imageJ_processing.jpg) If you have a batch of images you would like to quantify, place all the binary images in a single folder, with each single-stain indicated as "(nameofpicture)\_a" and "(nameofpicture)\_b".
 
-2. Run the matlab script, indicating the name of the folder that contains the pictures. The raw table output is generated in the same folder. What this matlab script does is split each binary image up into separate blocks. Below is a depiction of how the black and white pictures are split into blocks. You can toggle the block size. I have chosen to use rather large blocks just for demonstration purposes:
-![split_a](https://github.com/erilu/IHC-image-pixel-analyzer/blob/master/readme_pictures/split_blocks_a.jpg)
-![split_b](https://github.com/erilu/IHC-image-pixel-analyzer/blob/master/readme_pictures/split_blocks_b.jpg) After splitting the image, the script will export the proportion of black vs white pixels in each block.
+2. Run the matlab script, indicating the name of the folder that contains the pictures. The raw table output is generated in the same folder. What this matlab script does is split each binary image up into separate blocks. Below is a depiction of how the black and white pictures are split into blocks. You can toggle the block size. I have chosen to use rather large blocks for the pictures below.
+#### Stain_a split into blocks ![split_a](https://github.com/erilu/IHC-image-pixel-analyzer/blob/master/readme_pictures/split_blocks_a.jpg)
+#### Stain_b split into blocks ![split_b](https://github.com/erilu/IHC-image-pixel-analyzer/blob/master/readme_pictures/split_blocks_b.jpg)
+After splitting the image, the script will export the proportion of black vs white pixels in each block.  For the actual analysis, I used blocks of size 25x25 pixels. Using smaller blocks usually gives a more robust analysis.
 
 3. Run the R script to analyze the matlab output. These output files contain a .csv file that has the fraction of blocks that have pure stain_a vs pure stain_b, vs a mixture of stain_a and stain_b. It also generates graphs representing each individual picture. For demonstration purposes, I have also analyzed a more "confined" picture in which the two cell types (blue vs brown) are less intermixed: ![confined](https://github.com/erilu/IHC-image-pixel-analyzer/blob/master/readme_pictures/confined_binary.jpg)
 
 Here is the output for the confined vs disperse (intermixed) pictures: ![confined_output](https://github.com/erilu/IHC-image-pixel-analyzer/blob/master/R_output/confined_25x25_Total.png)
 ![disperse_output](https://github.com/erilu/IHC-image-pixel-analyzer/blob/master/R_output/disperse_25x25_Total.png)
 
-We can see that the output looks different for each picture and that the intermixing statistic is different as well.
+We can see that the output looks different for each picture and that the intermixing statistic (red line) is different as well. If you have a batch of images, the statistics are all exported into the file: [confinement_values_25x25.csv](https://github.com/erilu/IHC-image-pixel-analyzer/blob/master/R_output/confinement_values_25x25.csv).
